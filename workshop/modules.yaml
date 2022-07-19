@@ -3,14 +3,17 @@ modules:
   overview:
     name: Overview
     exit_sign: Continue
-  exercise1:
-    name: Exercise 1
+  workshop-goals:
+    name: Workshop Goals
     exit_sign: Continue
-  exercise2:
-    name: Exercise 2
+  workshop-introduction:
+    name: Workshop Introduction and Context
     exit_sign: Continue
-  exercise3:
-    name: Exercise 3
+  create-redhat-account:
+    name: Create a Red Hat Account
+    exit_sign: Continue
+  provision-cloud-services:
+    name: Provision Red Hat Application Services
     exit_sign: Continue
   review:
     name: Review

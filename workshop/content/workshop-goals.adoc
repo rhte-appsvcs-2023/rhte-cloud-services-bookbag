@@ -1,0 +1,10 @@
+The primary goal of the workshop is to guide the user through:
+
+* Adding Event Streaming capabilities to an application, in this case to allow tracking user activity and performing streaming analytics on the generated user activity stream.
+
+* Demonstrating an API First development approach
+
+* Adding API management capabilities to an application to manage and secure the APIs for access by external teams and appplications
+
+* Using managed cloud services wherever possible to achieve these goals.  
+

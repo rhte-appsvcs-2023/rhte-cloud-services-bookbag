@@ -3,7 +3,8 @@ name: Bookbag Template
 modules:
   activate:
     - overview
-    - exercise1
-    - exercise2
-    - exercise3
+    - workshop-goals
+    - workshop-introduction
+    - create-redhat-account
+    - provision-cloud-services
     - review
