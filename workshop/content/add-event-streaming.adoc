@@ -10,7 +10,7 @@ To support the business requirement of capturing and processing user activity on
 * *Recommendation Engine*: This service consumes and processes the events produced by the Activity Tracking service. The service uses the Kafka Streams library to continuously determine the top featured products (the products which generate the most activities).
 The service also exposes a REST endpoint to expose the list of featured products.
 
-Both services are developed using Quarkus, the Quarkus extensions for reactive messaging and Kafka Streams. The development of the services is outside the scope of this workshop, but you are encouraged to examine the source code of the applications on GitHub: link:hhttps://github.com/cloud-services-summit-connect-2022/activity-tracking-service[Activity Tracking Service,role=external,window=_blank] and link:https://github.com/cloud-services-summit-connect-2022/recommendation-engine[Recommendation Engine,role=external,window=_blank]
+Both services are developed using Quarkus, the Quarkus extensions for reactive messaging and Kafka Streams. The development of the services is outside the scope of this workshop, but you are encouraged to examine the source code of the applications on GitHub: link:https://github.com/cloud-services-summit-connect-2022/activity-tracking-service[Activity Tracking Service,role=external,window=_blank] and link:https://github.com/cloud-services-summit-connect-2022/recommendation-engine[Recommendation Engine,role=external,window=_blank]
 
 === Workshop Activities
 
@@ -30,7 +30,7 @@ https://servicebinding.io/[Service Binding For Kubernetes,role=external,window=_
 
 ==== Explore the environment
 
-. In a browser window, navigate to the console of the lab OpenShift cluster at %openshift_cluster_console%. Login with your username and password (`%user%/%user_password%`). Open the *Developer* perspective in the *globex-%user%* namespace.
+. In a browser window, navigate to the console of the lab OpenShift cluster at link:%openshift_cluster_console%[role=external,window=_blank]. Login with your username and password (`%user%/%user_password%`). Open the *Developer* perspective in the *globex-%user%* namespace.
 . In the Developer perspective, open the *Topology* view. Expect to see something like this (rearrange the topology as you see fit):
 +
 image::images/globex-deployment-topology.png[]
@@ -43,16 +43,11 @@ The deployed topology consists of:
 ** `activity-tracking`: The Activity Tracking service. Notice that the deployment of the service is scaled to zero. The service will be scaled up once the connection to the Kafka broker is set up.
 **  `recommendation-engine`: The Recommendation Engine service. Notice that the deployment of the service is scaled to zero. The service will be scaled up once the connection to the Kafka broker is set up.
 ** `activity-tracking-simulator`: A Quarkus service that simulates user activity events and sends them to the Activity Tracking service.
-. Open the *Globex UI* application in a browser tab. To do so, click on the image:images/console-open-url.png[] icon next to the blue circle representing the *Globex UI* deployment. Alternatively. open a tab browser and navigate to the following URL:
-+
-----
-%globex_ui_url%
-----
+. Open the *Globex UI* application in a browser tab. To do so, click on the image:images/console-open-url.png[] icon next to the blue circle representing the *Globex UI* deployment. Alternatively. open a tab browser and navigate to link:%globex_ui_url%[role=external,window=_blank]
 +
 Expect to see the home page of the Globex Coolstuff web application:
 +
 image::images/globex-coolstuff-home-page.png[]
-+
 . Click on *Cool Stuff Store* in the top menu to see a paginated list of products:
 +
 image::images/globex-coolstuff-product-page.png[]
@@ -188,11 +183,7 @@ The deployment topology for the workshop includes an activity simulator service 
 . In a browser window, navigate to the console of the lab OpenShift cluster at %openshift_cluster_console%. Open the *Developer* perspective in the *globex-%user%* namespace.
 . Open the URL to the *activity-tracking-simulator* application by clicking the image:images/console-open-url.png[] icon next to the blue circle representing the *activity-tracking-simulator* deployment.
 +
-Alternatively. open a tab browser and navigate to the following URL:
-+
-----
-%activity_tracking_simulator_url%/q/swagger-ui
-----
+Alternatively. open a tab browser and navigate to link:%activity_tracking_simulator_url%/q/swagger-ui[role=external,window=_blank]
 . Navigate to the `q/swagger-ui` path of the application. This opens a Swagger UI page which allows you to use the REST API of the application. The REST application has only one operation, `POST /simulate`.
 +
 image::images/activity-tracking-simulator-swagger-ui.png[]
