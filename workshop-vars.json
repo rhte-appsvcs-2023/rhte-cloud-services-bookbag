@@ -3,6 +3,8 @@
     "example_var": 42,
     "ssh_command": "ssh lab-user@bastion.abcde.example.com",
     "ssh_password": "p4ssword!1",
-    "user": "lab-user",
+    "user": "user1",
+    "user_password": "openshift",
+    "openshift_cluster_console": "https://console-openshift-console.apps.ocp4.mrsunshine.be",
     "user_info_messages": "Example workshop messages:\nHello, World"
 }

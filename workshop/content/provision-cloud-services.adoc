@@ -62,3 +62,4 @@ image::images/console-redhat-com-service-registry-instances.png[]
 +
 image::images/console-redhat-com-service-registry-instance-ready.png[]
 
+Leave the browser tab open, as you will have to come back to it later in the workshop.

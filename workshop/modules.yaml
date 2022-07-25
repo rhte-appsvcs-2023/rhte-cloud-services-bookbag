@@ -15,5 +15,5 @@ modules:
   provision-cloud-services:
     name: Provision Red Hat Application Services
     exit_sign: Continue
-  review:
-    name: Review
+  add-event-streaming:
+    name: Adding Event Streaming capabilities to an application
