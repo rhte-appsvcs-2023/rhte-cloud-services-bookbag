@@ -43,7 +43,12 @@ The deployed topology consists of:
 ** `activity-tracking`: The Activity Tracking service. Notice that the deployment of the service is scaled to zero. The service will be scaled up once the connection to the Kafka broker is set up.
 **  `recommendation-engine`: The Recommendation Engine service. Notice that the deployment of the service is scaled to zero. The service will be scaled up once the connection to the Kafka broker is set up.
 ** `activity-tracking-simulator`: A Quarkus service that simulates user activity events and sends them to the Activity Tracking service.
-. Open the *Globex UI* application in a browser tab. To do so, click on the image:images/console-open-url.png[] icon next to the blue circle representing the *Globex UI* deployment. +
+. Open the *Globex UI* application in a browser tab. To do so, click on the image:images/console-open-url.png[] icon next to the blue circle representing the *Globex UI* deployment. Alternatively. open a tab browser and navigate to the following URL:
++
+----
+%globex_ui_url%
+----
++
 Expect to see the home page of the Globex Coolstuff web application:
 +
 image::images/globex-coolstuff-home-page.png[]
@@ -152,7 +157,7 @@ image::images/rhosak-service-binding.png[]
 image::images/service-binding-secret.png[]
 . Scale the *activity-tracking* deployment to 1 replica. You can do so by clicking on the *activity-tracking* deployment, and in the details window select the *Details* tab, and click the arrow next to the circle to scale the deployment.
 +
-image::workshop/content/images/openshift-console-scale-deployment.png[]
+image::images/openshift-console-scale-deployment.png[]
 . Check the logs of the activity-tracking pod, and notice that the pod successfully connects to the Kafka broker instance.
 +
 ----
@@ -182,6 +187,12 @@ The deployment topology for the workshop includes an activity simulator service 
 
 . In a browser window, navigate to the console of the lab OpenShift cluster at %openshift_cluster_console%. Open the *Developer* perspective in the *globex-%user%* namespace.
 . Open the URL to the *activity-tracking-simulator* application by clicking the image:images/console-open-url.png[] icon next to the blue circle representing the *activity-tracking-simulator* deployment.
++
+Alternatively. open a tab browser and navigate to the following URL:
++
+----
+%activity_tracking_simulator_url%/q/swagger-ui
+----
 . Navigate to the `q/swagger-ui` path of the application. This opens a Swagger UI page which allows you to use the REST API of the application. The REST application has only one operation, `POST /simulate`.
 +
 image::images/activity-tracking-simulator-swagger-ui.png[]
