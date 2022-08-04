@@ -4,7 +4,7 @@ This section of the workshop gives you some background and context around the wo
 
 Globex is a fictitious retail company. The company recently started a digital transformation and cloud adoption journey. As part of this initiative, the development and devops teams have completed the modernization of the existing multi-tier monolithic retail e-commerce web application. The monolithic application was split in a couple of loosely-coupled microservices and the application was re-hosted on OpenShift.
 
-image::images/globex-appmod.png[width=75%]
+image::images/globex-appmod.png[width=45%]
 
 The devops team also adopted GitOps practices for rapid and continuous deployment.
 
@@ -12,7 +12,7 @@ The outcome of this application modernization effort is an increased velocity of
 
 A schematic overview of the current state of the application after the first phase of the application modernization effort:
 
-image::images/globex-phase1.png[width=75%]
+image::images/globex-phase1.png[width=45%]
 
 * The application is split into microservices and runs on OpenShift. As such it inherits all the benefits of the de-facto enterprise Kubernetes distribution: horizontal scaling, automated rollout/rollback, bin-packing, self healing, service discovery, load balancing, etc.
 
@@ -59,6 +59,7 @@ Visitors engage with the Globex retail website in a number of ways
 * like a product / add a product to favourites
 * view product details 
 * add products to the shopping cart
+* place an order
 
 Each of these activities generate a stream of events which are captured by  the *User Activity Tracking* service. This service then pushes the events into the Kafka streaming platform. 
 The events can then be consumed by other services such as the *Product Recommendation* service which powers the list of featured products.

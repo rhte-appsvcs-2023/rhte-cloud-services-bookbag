@@ -14,7 +14,7 @@ As part of this workshop you provision and use the following Red Hat Application
 
 == Provision a Streams for Apache Kafka instance
 
-In this step you provision a Streams for Apache Kafka instance which will be used to produce a stream of activity tracking events.
+In this step you provision a Streams for Apache Kafka instance which will be used to produce a stream of activity tracking events and for the records produced by users placing an order.
 
 Red Hat OpenShift Application Services are provisioned and managed through the Red Hat Hybrid Cloud Console at link:https://console.redhat.com[console.redhat.com,role=external,window=_blank] or with the `rhoas` CLI. This workshop uses the Hybrid Console.
 

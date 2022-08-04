@@ -6,5 +6,10 @@ modules:
     - workshop-introduction
     - create-redhat-account
     - provision-cloud-services
+    - design-apis
+    - service-registry
+    - mock-apis
+    - manage-apis-rhoam
+    - add-event-streaming
     - add-event-streaming
     - integrate-openshift-connectors
