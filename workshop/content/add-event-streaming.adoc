@@ -42,6 +42,7 @@ The deployed topology consists of:
 ** `inventory-app`: The Globex Coolstuff inventory service, consisting of the inventory database and the Quarkus inventory microservice.
 ** `activity-tracking`: The Activity Tracking service. Notice that the deployment of the service is scaled to zero. The service will be scaled up once the connection to the Kafka broker is set up.
 **  `recommendation-engine`: The Recommendation Engine service. Notice that the deployment of the service is scaled to zero. The service will be scaled up once the connection to the Kafka broker is set up.
+** `order-placement-service`: The Order PLacement service, which receives orders from the web application through REST and sends the orders to a Kafka topic. Notice that the deployment of the service is scaled to zero. The service will be scaled up once the connection to the Kafka broker is set up.
 ** `activity-tracking-simulator`: A Quarkus service that simulates user activity events and sends them to the Activity Tracking service.
 . Open the *Globex UI* application in a browser tab. To do so, click on the image:images/console-open-url.png[] icon next to the blue circle representing the *Globex UI* deployment. Alternatively. open a tab browser and navigate to link:%globex_ui_url%[role=external,window=_blank]
 +

@@ -8,3 +8,4 @@ modules:
     - create-redhat-account
     - provision-cloud-services
     - add-event-streaming
+    - integrate-openshift-connectors

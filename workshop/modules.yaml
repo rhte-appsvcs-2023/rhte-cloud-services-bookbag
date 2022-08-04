@@ -16,4 +16,6 @@ modules:
     name: Provision Red Hat Application Services
     exit_sign: Continue
   add-event-streaming:
-    name: Adding Event Streaming capabilities to an application
+    name: Add Event Streaming capabilities to an application
+  integrate-openshift-connectors:
+    name: Integrate an application with cloud services using OpenShift Connectors
