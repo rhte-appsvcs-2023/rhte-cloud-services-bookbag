@@ -1,7 +1,7 @@
 == Red Hat OpenShift Service Registry
 
 
-OpenShift Service Registry is a datastore for sharing standard event schemas and API designs across event-driven and API architectures. In this section you will explore and learn about this managed service hosted on http://console.redhat.com[Red Hat Hybrid Cloud Console]
+OpenShift Service Registry is a datastore for sharing standard event schemas and API designs across event-driven and API architectures. In this section you will explore and learn about this managed service hosted on http://console.redhat.com[Red Hat Hybrid Cloud Console, role=external,window=_blank]
 
 . If not already open, navigate to the https://console.redhat.com/beta/application-services/service-registry[Service Registry] from the browser. If necessary, login with your Red Hat account that you are using for this workshop.
 
@@ -10,11 +10,11 @@ OpenShift Service Registry is a datastore for sharing standard event schemas and
 +
 image::images/osr_landing_page.png[]
 
-. Click on the registry  `globex` to view the artifacts. You will see the schema  `globex / OrderPlacementAPI` that you exported from the `API Designer` in the previous section of the labs.
+. Click on the registry  `globex` to view the artifacts. You will see the schema  `globex / Product Catalog API (ProductCatalogAPI)` that you exported from the `API Designer` in the previous section of the labs.
 +
 image::images/osr_artifacts.png[]
 
-. Click on `globex / OrderPlacementAPI` to  view the details of the OrderPlacementAPI schema. This overview page provides details about this registry. You will find details about the schemna on this page. 
+. Click on the `Product Catalog API` to  view the details of the ProductCatalogAPI schema. This overview page provides details about this registry. You will find details about the schemna on this page. 
 +
 image::images/osr-api-overview.png[]
 . Click on the  `Documentation` tab to view the OpenAPI specifications 
@@ -37,14 +37,14 @@ image::images/osr-view-content.png[]
 
 . Click on the `*Upload new version*` button on the top-right of the page
 +
-image::images/osr-upload-new-popup.png[]
+image::images/osr-upload-new-popup.png[] 
 
 . Paste the content of the schema that you copied in the previous steps into the textbox provided (Ctrl+V). 
 
 . Delete the closing `}` at the bottom of the textbox and  click `Upload`
 * *The original content*
 +
-image::images/osr-original-api-content.png[]
+image::images/osr-original-api-content.png[] 
 * *After introducing an error*
 +
 image::images/osr-edit-schema-with-error.png[]
@@ -63,5 +63,5 @@ OpenShift Service Registry also provides full integration with Red Hat OpenShift
 
 ====
 
-In the next step you will explore use the OrderPlaceAPI specifications to setup mocks.
+In the next step you will explore use the ProductCatalogAPI specifications to setup mocks.
 

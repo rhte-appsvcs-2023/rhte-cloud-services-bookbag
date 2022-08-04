@@ -17,11 +17,7 @@ OpenShift API Designer is in Beta and all your designs are stored locally in you
 === Import API 
 
 . Navigate to OpenShift API Designer tab and  login using your  Red Hat account
-+
-image::images/api-designer-landing-page.png[]
-
 . In the landing page, click on the "Import design" buton and choose `"Import from URL"` option.
- https://raw.githubusercontent.com/cloud-services-summit-connect-2022/OrderPlacementAPI/main/openapi/openapi-spec.yml[OrderPlacementAPI OpenAPI specs]
 +
 image::images/api-designer-import-url.png[]
 
@@ -30,7 +26,7 @@ image::images/api-designer-import-url.png[]
 [.console-input]
 [source,bash]
 ----
-https://raw.githubusercontent.com/cloud-services-summit-connect-2022/OrderPlacementAPI/main/openapi/openapi-spec.yml
+https://raw.githubusercontent.com/cloud-services-summit-connect-2022/product-catalog-api/main/openapi/openapi-spec.yml
 ----
 +
 image::images/api-designer-import-url-popup.png[]
@@ -39,18 +35,33 @@ image::images/api-designer-import-url-popup.png[]
 +
 image::images/api-designer-api-data.png[]
 
-. You can now view  the OrderPlacementAPI on the broswer. You can explore the Paths, Data Types and Responses that are part OrderPlacementAPI
+. You can now view  the `Product Catalog API` on the broswer. You can explore the Paths, Data Types and Responses that are part  of this API.
 +
 image::images/api-designer-api-import-complete.png[]
 
-=== Explore and edit the API 
 
+=== Explore and edit the API 
+. Click on the `product-list` under the `Responses` section
+. Click on the `2 example(s) defined` link. You will see the list of examples given
++
+image::images/api-designer-product-list-response-eg-list.png[]
+. On moviing the mouse over the examples, you can choose to click on the `Edit` button shown as a `pencil icon`. This open the example's content.
++
+image::images/api-designer-sample-original.png[]
+. Replace the name of the first product by appending your name. I've changed this from `Quarkus T-shirt` to `Jaya's Awesome Quarkus T-shirt`
++
+image::images/api-designer-sample-updated.png[]
+. Click on `Edit` button to finish editing
++
+image::images/api-designer-sample-edit-complete.png[]
 
 
 === Export this API into the Service Registry
 The next step is to export this API into the Service Registry so that this can be used as a single source of truth by the developers.
 
 . Click on the `Action` button found on the top-right corner.
++
+image::images/api-designer-export-actions.png[]
 
 . Choose the `Export to Service Registry` option from the drop down
 
@@ -60,7 +71,7 @@ The next step is to export this API into the Service Registry so that this can b
 |=======================================
 | Registry Instance  | globex
 | Group              | globex
-| ID                 | OrderPlacementAPI
+| ID                 | ProductCatalogAPI
 | Version            | 1.0              
 |=======================================
 +
@@ -69,10 +80,5 @@ image::images/api-designer-export-2-osr.png[]
 . A success message wull appear on the top right of the screen notifiying that the API export is  successful
 +
 image::images/api-designer-api-export-complete.png[]
-
-. Click on the `View artifact in Service Registry` to view the imported API on OpenShift Service Registry
-+
-image:images/api-designer-api-export-osr-view.png[]
-
 
 In the next step you will explore the OpenShift Service Registry.

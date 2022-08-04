@@ -11,7 +11,7 @@ For the URL to access `OpenShift API Management`, please ask your instructor. Th
 === Acces Red Hat OpenShift API Management
 . In a browser window, navigate to the console of the OpenShift API Management tenant with the URL shared at the workshop by the instructor
 . Login with your username and password (`%user%/%user_password%`). 
-. You will see that a sample API which can been already setup.
+. You will see that a sample API which has been already setup.
 +
 image::images/rhoam-landing-page.png[]
 
@@ -27,61 +27,72 @@ image::images/rhoam-dashboard.png[Red Hat OpenShift API Management Dashboard]
 
 . Provide the following details:
 +
-image::images/rhoam-create-product.png[width=100%]
+image::images/rhoam-create-product.png[width=100%] 
 +
 [options=header]
 [width=60%]
-|===
-|Field | Value
-| Name |  `globex-order-placement`
-| System name | `globex-order-placement`
-| Description |  `Order placement API for the Globex online app`
-|===
+|========================================================================
+|Field          | Value
+| Name          |  `globex-product-catalog`
+| System name   | `globex-product-catalog`
+| Description   |  `Product Catalog  API for the Globex online app`
+|========================================================================
 
 . Click *Create Product*.
-. A Product `globex-order-placement` is created and you are taken to the Product Overview page
+. A Product `globex-product-catalog` is created and you are taken to the Product Overview page
 +
 image:images/rhoam-create-product-overview.png[]
 
 === Create an API Backend
 . Navigate back to the Dashboard. Click `Create Backend` in the *_Backends_* card found in the APIs section.
-. Provide the following details and Click *Create Backend*
+. Provide the following details.
 +
 image::images/rhoam-create-backend.png[]
 +
 [options=header]
-|===
-|Field | Value
-| Name | `globex-order-placement-backend`
-| System name | `globex-order-placement-backend`
-| Description | `Backend for the Order Placement service`
-| Private endpoint | Postman -> OrderPlacementAPI mock server's URL
-|===
+|========================================================================
+| Field             | Value
+| Name              | `globex-catalog-backend`
+| System name       | `globex-catalog-backend`
+| Description       | `Backend for the Product Catalog  service`
+| Private endpoint  | Base URL of the Product Catalog API.
+|========================================================================
 
 + 
 [NOTE]
 ====
-At this point, the actual backend service is not available since it is not fully developed yet. So, the Postman's OrderPlacementAPI mock server would be used as the actual server, and that mock server's URL will be managed and secured. 
+*Instruction how to access the Private Endpoint of the* `*Product Catalog API*`
 
-Once the backend development is complete, the Backend's URL can be updated and published without any change to any of the client applications.
+* In a browser window, navigate to the console of the lab OpenShift cluster at link:%openshift_cluster_console%[role=external,window=_blank]. Login with your username and password (`%user%/%user_password%`). Open the *Developer* perspective in the *globex-%user%* namespace.
+* Click on the `*catalog icon*` to see the deployment details appear on the right hand side.
++
+image::images/rhoam-globex-deployment-topology-catalog-service.png[]
+* Under the `Resources` tab, copy the `Location` URLas present at the bottom of this under `Routes`. This would look something like this `https://catalog-globex-user1.apps.cluster-fzxlb.fzxlb.sandbox1043.opentlc.com`
+* You will use this base URL as  the `Private endpoint` while creating the Backend
 ====
 
+. Click *Create Backend*
+. The Backend overview page is presented 
++
+image::images/rhoam-backend-overview.png[]
+
+
 === Add  Backend to Product
-. Click on the selector right next to the 3scale logo and choose `Products`
-. Choose the Product `*globex-order-placement*` product from the list of products. 
+. Click on the selector option right next to the logo and choose `Products`
+. Choose the Product `*globex-product-catalog*` product from the list of products. 
 . Navigate to  *Integration > Backend* from the left-hand menu.
 +
 image::images/rhoam-backend-landing.png[]
-. Click on *Add Backend*, choose `globex-order-placement-backend` from the dropdown, and click the *Add to Product* button
+. Click on *Add Backend*, choose `globex-catalog-backend` from the dropdown, and click the *Add to Product* button
 +
 image::images/rhoam-add-backend-to-product.png[width=100%]
-. You will see the new Backend `globex-order-placement-backend` being listed now.
+. You will see the new Backend `globex-catalog-backend` being listed now.
 +
 image::images/rhoam-add-backend-to-product-success.png[]
 
 === Create an application plans to define a customer-facing API product
 
-. Navigate to the `globex-order-placmeent` Product again if necessary.
+. Navigate to the `globex-product-catalog` Product again if necessary.
 . In `Applications > Application Plans` menu on the left hand side, click on *Create Application Plan*
 +
 image:images/rhoam-create-app-plan-list.png[]
@@ -90,17 +101,19 @@ image:images/rhoam-create-app-plan-list.png[]
 image::images/rhoam-create-app-plan.png[]
 +
 [options=header]
-|===
-|Field | Value
-| Name | `globex-order-placement-app-plan`
-| System name | `globex-order-placement-app-plan`
-|===
+[width="60%"] 
+|============================================
+| Field         | Value
+| Name          | `globex-product-catalog-app-plan`
+| System name   | `globex-product-catalog-app-plan`
+|============================================
+
 
 . Click *Create Application Plan*.
 . The application plan will be created and listed now. Click on the `*Publish*` option from the kebab menu displayed as shown in the screenshot.
 +
 image::images/rhoam-create-app-plan-success.png[]
-. The state of the application plan will now show as `published`
+. The state of the application plan will now be displayed as `published`
 +
 image::images/rhoam-create-app-plan-published.png[]
 
@@ -112,7 +125,7 @@ image::images/rhoam-create-app-plan-published.png[]
 An application is always associated with an application plan. Applications are stored within developer accounts.
 ====
 
-. Navigate to `Audience > Accounts > Listing` from the menu on top of the page right next to the logo.
+. Navigate to `Audience > Accounts > Listing` from the dropdown menu near top-left of the page.
 . For the purpose of this labs, you will use the default `Developer` account that has already been created.
 +
 image::images/rhoam-developer-account.png[]
@@ -124,16 +137,15 @@ image::images/rhoam-audience-add-app.png[]
 . Choose the following details in the `New Application` page:
 +
 image::images/rhoam-create-app.png[]
-
 +
 [options=header] 
 [width="60%"] 
 |==========================================
 | Field             | Value
-| Product           | `globex-order-placement`
-| Application plan* | `globex-order-placement-app-plan`
-| Name              |  `globex-order-placement-application`
-| Description       | `Order Placement Developer App`
+| Product           | `globex-product-catalog`
+| Application plan | `globex-product-catalog-app-plan`
+| Name              |  `globex-product-catalog-application`
+| Description       | `Globex Product Catalog Developer App`
 |==========================================
 
 . Click `*Create Application*` button.
@@ -145,44 +157,27 @@ image::images/rhoam-create-app-success.png[]
 
 === Test integration of the API
 
-. Navigate to the Product > *globex-order-placement* > `Integration` > `Configuration`
+. Navigate to the Product > *globex-product-catalog* > `Integration` > `Configuration`
 . Under *APIcast Configuration*, click `*Promote to Staging APIcast*` to promote the new APIcast configuration to staging.
 +
 image::images/rhoam-promote-staging.png[]
 
-. To test requests to your API product, copy the URL provided along with the curl command in the *Example curl for testing* section. This would look something like this
-+
-[NOTE]
-====
-https://globex-order-placement-jaya-rhoam101-apicast-staging.apps.rhoam-ds-prod.xe9u.p1.openshiftapps.com:443/?user_key=bc56273d7e5126e680295ef611e808ec
-====
+. To test requests to your API product, copy the URL provided along with the curl command in the *Example curl for testing* section. 
 +
 image::images/rhoam-curl-test-api.png[]
-. Include the path `placeorder` in the URL so that it looks something like this
-`https://globex-order-placement-jaya-rhoam101-apicast-staging.apps.rhoam-ds-prod.xe9u.p1.openshiftapps.com:443/placeorder?user_key=bc56273d7e5126e680295ef611e808ec`
-. Use Postman to run this query. 
-.. Open a new tab in Postman - and choose `*POST*`
-.. Use the staging URL from the API manager (ensure the placeorder path is included)
-.. Use the same sample input as used in the previous mock server tests. 
-.. Choose `raw` option under the `Body` section. Paste the sample response into the textarea and ensure the you have selected `JSON` instead of `Text` for the data type.
+. Include the path `services/products` in the URL so that it looks like this
+`https://globex-product-catalog-jaya-rhoam101-apicast-staging.apps.rhoam-ds-prod.xe9u.p1.openshiftapps.com:443/services/products?user_key=5f378fb68add26d7c9a17a0d725f9afa`
+. Paste the URL in the address field of a browser tab and press enter
+. You will see the response JSON being displayed 
 +
-image::images/rhoam-postman-test-step1.png[]
-
-.. Add a header `x-mock-response-name` with value `OK` to ensure the right example gets picked by the mock server.
-+
-image::images/rhoam-postman-test-step2-header.png[]
-
-. Click the `Send` button. You should receive a JSON response containing results from Order Placement API.
-+
-image::images/rhoam-postman-test-step3-result.png[]
-** To check if the API Management is actually securing the API, try altering the api_key's value. You will receive a `Status: 403 Forbidden` error with a message that `Authentication failed`
-** In real life, the mobile app would be using the staging and production API endpoints securely to access the APIs.
-. back in the API Mangement portal, Click on the Analytics -> Traffic link on the left hand side menu for the `globex-order-placement` product. You will see the Hits details. This section provides insights in terms of the number hits for the product and other traffic analysis details as well.
+image::images/rhoam-final-response.png[]
+** To check if the API Management is actually securing the API, try altering the api_key's value in the URL. You will receive an  `Authentication failed` error
+. Back in the API Mangement portal, Click on the Analytics -> Traffic link on the left hand side menu for the `globex-product-catalog` product. You will see the Hits details. This section provides insights in terms of the number hits for the product and other traffic analysis details as well.
 +
 image::images/rhoam-api-traffic.png[]
 
-
 [NOTE]
 ====
-This tenant is setup specifically for this workshop. If you would like to try it out later you can use the http://red.ht/rhoam-sandbox[OpenShift API Management Developer Sandbox,role=external,window=_blank] for a free trial acccount
+This OpenShift API Management tenant is setup specifically for this workshop. If you would like to try it out later you can use the http://red.ht/rhoam-sandbox[OpenShift API Management Developer Sandbox,role=external,window=_blank] for a free trial acccount
 ====
+ 
