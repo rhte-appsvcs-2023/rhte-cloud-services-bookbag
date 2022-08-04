@@ -1,10 +1,7 @@
 ---
 modules:
-  overview:
-    name: Overview
-    exit_sign: Continue
   workshop-goals:
-    name: Workshop Goals
+    name: Workshop Overview and Goals
     exit_sign: Continue
   workshop-introduction:
     name: Workshop Introduction and Context
