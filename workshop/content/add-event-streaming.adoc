@@ -107,7 +107,7 @@ image::images/openshift-console-rhosak.png[]
 . Click the *Red Hat OpenShift Streams for Apache Kafka* card, and click *Connect*. This opens a page which shows the Kafka instances that you can connect to. Select the `globex` instance and click *Next*
 +
 image::images/openshift-console-rhosak-connect.png[]
-. You are redirected to the *Topology View* of the Developer perspective, which shows now an entry for the managed Kafka instance.
+. You are redirected to the *Topology View* of the Developer perspective, which shows now an icon for the managed Kafka instance.
 +
 image::images/openshift-console-topology-rhosak.png[]
 . The entry is backed by a `KafkaConnection` custom resource created by the OpenShift Application Services operator. To see the details of the KafkaConnection resource, click on the resource in the Topology view, and in the Details window, select *Edit KafkaConnection* to see the YAML structure of the custom resource. +
@@ -128,7 +128,7 @@ image::images/rhosak-default-access.png[]
 
 . Click *Manage access*, use the *Account* drop-down menu to select the service account that was created by the OpenShift Application Services operator, and click *Next*.
 
-. Under *Assign Permissions*, use the drop-down menus to set the permissions shown in the following table for this service account. +
+. Under *Assign Permissions*, use the drop-down menus to set the permissions for this service account. +
 Select the *Consume from a topic* and *Produce to a topic* from the *Task-based permission* possibilities. Set the topic and consumer group names to `is` and `*`.
 +
 image::images/rhosak-manage-access.png[]
@@ -143,7 +143,8 @@ image::images/rhosak-access-serviceaccount.png[]
 
 You can now bind the Activity Tracking Service and Recommendation Engine to the OpenShift Streams for Apache instance. Through Service Binding the connection details are injected into the application pods. Service Binding to a managed Kafka instance can be done on the Topology view of OpenShift console, or through the `rhoas` CLI. In this workshop we use the OpenShift console.
 
-. Navigate to the *Topology* view of the OpenShift console in the *globex* namespace.
+. In a browser window, navigate to the console of your OpenShift cluster at %openshift_cluster_console%. Open the *Developer* perspective.
+. Navigate to the *Topology* view of the OpenShift console in the *globex-%user%* namespace.
 . Hover over the *activity-tracking* deployment, and grab the arrow that appears. Drag the arrow to the *KafkaConnection* icon. When reaching the KafkaConnection icon, a text box `Create Service Binding` appears. Release the arrow. Click *Create* in the *Create Service Binding* pop-up window. The Activity Tracking deployment and the KafkaConnection icon are now connected with a solid black arrow.
 +
 image::images/rhosak-service-binding.png[]
@@ -183,7 +184,7 @@ The deployment topology for the workshop includes an activity simulator service 
 . In a browser window, navigate to the console of the lab OpenShift cluster at %openshift_cluster_console%. Open the *Developer* perspective in the *globex-%user%* namespace.
 . Open the URL to the *activity-tracking-simulator* application by clicking the image:images/console-open-url.png[] icon next to the blue circle representing the *activity-tracking-simulator* deployment.
 +
-Alternatively. open a tab browser and navigate to link:%activity_tracking_simulator_url%/q/swagger-ui[role=external,window=_blank]
+Alternatively. open a tab browser and navigate to link:%activity_tracking_simulator_url%/q/swagger-ui[role=external,window=_blank].
 . Navigate to the `q/swagger-ui` path of the application. This opens a Swagger UI page which allows you to use the REST API of the application. The REST application has only one operation, `POST /simulate`.
 +
 image::images/activity-tracking-simulator-swagger-ui.png[]
