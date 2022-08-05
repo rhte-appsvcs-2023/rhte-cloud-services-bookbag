@@ -66,3 +66,10 @@ The events can then be consumed by other services such as the *Product Recommend
 A new *Featured Products* section is created in the front-end web application to showcase the top featured products. 
 
 Since Globex does not want to allow direct access to these backend API services to other channels such as the mobile app, an API Management platform is introduced. The mobile app will access the services through the API Management platform.
+
+== Deployment Architecture
+
+Here is a view of the deployment architecture
+
+image::images/globex-deployment-architecture.png[]
+

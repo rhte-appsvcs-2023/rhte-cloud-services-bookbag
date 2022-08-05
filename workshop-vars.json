@@ -7,5 +7,6 @@
     "user_password": "openshift",
     "openshift_cluster_console": "https://console-openshift-console.apps.cluster-abcde.abcde.sandbox1234.openshift.com",
     "globex_ui_url": "https://globex-ui-globex-user1.apps.cluster-abcde.abcde.sandbox1234.openshift.com",
-    "activity_tracking_simulator_url": "https://activity-tracking-simulator-globex-user1.apps.cluster-abcde.abcde.sandbox1234.openshift.com"
+    "activity_tracking_simulator_url": "https://activity-tracking-simulator-globex-user1.apps.cluster-abcde.abcde.sandbox1234.openshift.com",
+    "catalog_service_url": "https://catalog-globex-user1.apps.cluster-cfcdh.cfcdh.sandbox585.opentlc.com/"
 }

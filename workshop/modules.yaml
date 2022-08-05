@@ -12,7 +12,20 @@ modules:
   provision-cloud-services:
     name: Provision Red Hat Application Services
     exit_sign: Continue
+  design-apis:
+    name: Design APIs for an API First Approach
+    exit_sign: Continue
+  service-registry:
+    name: Host APIs in a Service Registry
+    exit_sign: Continue
+  mock-apis:
+    name: Created mocks to enable parallel development
+    exit_sign: Continue
+  manage-apis-rhoam:
+    name: Manage and Secure APIs 
+    exit_sign: Continue
   add-event-streaming:
     name: Add Event Streaming capabilities to an application
+    exit_sign: Continue
   integrate-openshift-connectors:
     name: Integrate an application with cloud services using OpenShift Connectors

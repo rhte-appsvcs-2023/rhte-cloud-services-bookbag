@@ -82,7 +82,7 @@ image::images/postman-mock-create-server.png[]
 +
 image::images/postman-mock-server-url.png[]
 
-=== Testing the mock server
+=== Test the imported API using the mock server
 . Explore  `Collections` menu from the left hand side, and you will be able to see the examples that been already created while the API was designed.
 . Click on the `Get list of product by id` from the Collections. This opens a tab on Postman which you can use to issue a request
 +

@@ -1,5 +1,5 @@
 ---
-name: Bookbag Template
+name: Using Red Hat's cloud services to rapidly deliver cloud-native applications
 modules:
   activate:
     - workshop-goals
@@ -10,6 +10,5 @@ modules:
     - service-registry
     - mock-apis
     - manage-apis-rhoam
-    - add-event-streaming
     - add-event-streaming
     - integrate-openshift-connectors

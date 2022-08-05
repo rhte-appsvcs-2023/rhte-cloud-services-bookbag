@@ -5,10 +5,10 @@ In this part of the workshop you will use the  OpenShift API Management tenant t
 
 [IMPORTANT]
 ====
-For the URL to access `OpenShift API Management`, please ask your instructor. This will be shown on the classroom screen as well.
+For the URL to access `OpenShift API Management`, please ask your instructor. 
 ====
 
-=== Acces Red Hat OpenShift API Management
+=== Access Red Hat OpenShift API Management
 . In a browser window, navigate to the console of the OpenShift API Management tenant with the URL shared at the workshop by the instructor
 . Login with your username and password (`%user%/%user_password%`). 
 . You will see that a sample API which has been already setup.
@@ -55,19 +55,19 @@ image::images/rhoam-create-backend.png[]
 | Name              | `globex-catalog-backend`
 | System name       | `globex-catalog-backend`
 | Description       | `Backend for the Product Catalog  service`
-| Private endpoint  | Base URL of the Product Catalog API.
+| Private endpoint  | `%catalog_service_url%`
 |========================================================================
 
 + 
 [NOTE]
 ====
-*Instruction how to access the Private Endpoint of the* `*Product Catalog API*`
+*You can use the Private endpoint as shown in the table above. But if you'd like to find out how to get this, follow these instructions*
 
 * In a browser window, navigate to the console of the lab OpenShift cluster at link:%openshift_cluster_console%[role=external,window=_blank]. Login with your username and password (`%user%/%user_password%`). Open the *Developer* perspective in the *globex-%user%* namespace.
 * Click on the `*catalog icon*` to see the deployment details appear on the right hand side.
 +
 image::images/rhoam-globex-deployment-topology-catalog-service.png[]
-* Under the `Resources` tab, copy the `Location` URLas present at the bottom of this under `Routes`. This would look something like this `https://catalog-globex-user1.apps.cluster-fzxlb.fzxlb.sandbox1043.opentlc.com`
+* Under the `Resources` tab, copy the `Location` URL as present at the bottom of this under `Routes`. This would look something like this `%catalog_service_url%`
 * You will use this base URL as  the `Private endpoint` while creating the Backend
 ====
 
