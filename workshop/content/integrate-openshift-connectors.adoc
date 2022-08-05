@@ -130,7 +130,7 @@ To test the end-to-end integration, you need to create one or more orders on the
 
 . In a browser window, navigate to the console of the lab OpenShift cluster at %openshift_cluster_console%. Open the *Developer* perspective in the *globex-%user%* namespace.
 . Open the *Globex UI* application in a browser tab. To do so, click on the image:images/console-open-url.png[] icon next to the blue circle representing the *Globex UI* deployment. Alternatively. open a tab browser and navigate to link:%globex_ui_url%[role=external,window=_blank]
-. Click on *Login* in the upper right corner to simulate a login. In the Login pop-up window, enter a username, email address and password. The values don't really matter.
+. Click on *Login* in the upper right corner to simulate a login. In the Login pop-up window, enter an email address and password. The values don't really matter.
 +
 image::images/globex-coolstuff-login.png[]
 . Click on *Coolstuff Store* to browse around the product catalog, and add some products to your shopping cart. Click on the *Cart* link to show the shopping cart.
