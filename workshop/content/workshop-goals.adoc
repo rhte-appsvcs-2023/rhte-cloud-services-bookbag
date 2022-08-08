@@ -6,6 +6,6 @@ The primary goal of the workshop is to guide the user through:
 
 * Demonstrating an API First development approach.
 
-* Adding API management capabilities to an application to manage and secure the APIs for access by external teams and appplications.
+* Adding API management capabilities to an application to manage and secure the APIs for access by external teams and applications.
 
 * Using managed cloud services wherever possible to achieve these goals.  
