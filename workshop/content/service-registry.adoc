@@ -14,7 +14,7 @@ image::images/osr_landing_page.png[]
 +
 image::images/osr_artifacts.png[]
 
-. Click on the `Product Catalog API` to  view the details of the ProductCatalogAPI schema. This overview page provides details about this registry. You will find details about the schemna on this page. 
+. Click on the `Product Catalog API` to  view the details of the ProductCatalogAPI schema. This overview page provides details about this registry. You will find details about the schema on this page. 
 +
 image::images/osr-api-overview.png[]
 . Click on the  `Documentation` tab to view the OpenAPI specifications 
@@ -27,11 +27,11 @@ image::images/osr-api-overview.png[]
 +
 image::images/osr-api-content-rules.png[] 
 
-. Click on `Enable` button against the  "Validity Rule" and choose `Full` from the dropdown. This rules ensures that the content is valid when artifcat  is updated.
+. Click on `Enable` button against the  "Validity Rule" and choose `Full` from the dropdown. This rules ensures that the content is valid when the artifact is updated.
 +
 image::images/osr-content-rules.png[]
 
-. Click on the `*Content*` tab. Copy the entire content of the artifact shown in this tav  (into the memory by Ctrl+A and Ctrl+C)
+. Click on the `*Content*` tab. Copy the entire content of the artifact shown in this tab (into the memory by Ctrl+A and Ctrl+C)
 +
 image::images/osr-view-content.png[]
 
@@ -41,7 +41,7 @@ image::images/osr-upload-new-popup.png[]
 
 . Paste the content of the schema that you copied in the previous steps into the textbox provided (Ctrl+V). 
 
-. Delete the closing `}` at the bottom of the textbox and  click `Upload`
+. Delete the closing `}` at the bottom of the text box and  click `Upload`
 * *The original content*
 +
 image::images/osr-original-api-content.png[] 
@@ -63,5 +63,5 @@ OpenShift Service Registry also provides full integration with Red Hat OpenShift
 
 ====
 
-In the next step you will explore use the ProductCatalogAPI specifications to setup mocks.
+In the next step you will explore the use of the ProductCatalogAPI specification to setup mocks.
 

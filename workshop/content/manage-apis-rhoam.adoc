@@ -11,7 +11,7 @@ For the URL to access `OpenShift API Management`, please ask your instructor.
 === Access Red Hat OpenShift API Management
 . In a browser window, navigate to the console of the OpenShift API Management tenant with the URL shared at the workshop by the instructor
 . Login with your username and password (`%user%/%user_password%`). 
-. You will see that a sample API which has been already setup.
+. You will see that a sample API which has been already set up.
 +
 image::images/rhoam-landing-page.png[]
 
@@ -88,7 +88,7 @@ image::images/rhoam-add-backend-to-product.png[width=100%]
 +
 image::images/rhoam-add-backend-to-product-success.png[]
 
-=== Create an application plans to define a customer-facing API product
+=== Create an application plan to define a customer-facing API product
 
 . Navigate to the `globex-product-catalog` Product again if necessary.
 . In `Applications > Application Plans` menu on the left hand side, click on *Create Application Plan*
@@ -150,7 +150,7 @@ image::images/rhoam-create-app.png[]
 . You can see your new application details now
 +
 image::images/rhoam-create-app-success.png[]
-. Make a note of the `User Key` that is displayed under the `API Credentials` section. This will be used while making calls to the API
+. Make a note of the `User Key` that is displayed under the `API Credentials` section. This will be used while making calls to the API.
 
 
 === Test integration of the API
@@ -170,7 +170,7 @@ image::images/rhoam-curl-test-api.png[]
 +
 image::images/rhoam-final-response.png[]
 ** To check if the API Management is actually securing the API, try altering the api_key's value in the URL. You will receive an  `Authentication failed` error
-. Back in the API Mangement portal, Click on the Analytics -> Traffic link on the left hand side menu for the `globex-product-catalog` product. You will see the Hits details. This section provides insights in terms of the number hits for the product and other traffic analysis details as well.
+. Back in the API Mangement portal, Click on the *Analytics -> Traffic* link on the left hand side menu for the `globex-product-catalog` product. You will see the Hits details. This section provides insights in terms of the number hits for the product and other traffic analysis details as well.
 +
 image::images/rhoam-api-traffic.png[]
 

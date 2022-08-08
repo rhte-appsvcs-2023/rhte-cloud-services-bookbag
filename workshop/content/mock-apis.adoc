@@ -1,6 +1,6 @@
 == Setting up mocks to help with parallel development
 
-Now that  the OpenAPI specs are finalised, creatoion of API mocks will enable parallel development streams leading to rapid inner loop development. 
+Now that  the OpenAPI specs are finalised, creation of API mocks will enable parallel development streams leading to rapid inner loop development. 
 
 * UI developers and other app dev teams (such as mobile dev) do not need to wait for the APIs to be completely developed and instead can use these mocks to get realistic responses. 
 
@@ -24,13 +24,13 @@ image::images/postman_landing.png[]
 
 === Import the ProductCatalogAPI API
 
-. You will now see the `Import wizard`  with mutiple options
+. You will now see the `Import wizard`  with multiple options
 +
 image:images/postman-import-popup.png[width=60%]
 
 . The next step is to import the OpenAPI spec from Service Registry. 
-* Navigate to the https://console.redhat.com/beta/application-services/service-registry[Service Registry]. Login with Red Hat account if necessary.
-* Navigate to the `globex` instance and there onto `globex / ProductCatalogAPI`. 
+* Navigate to the https://console.redhat.com/beta/application-services/service-registry[Service Registry]. Login with yopur Red Hat account if necessary.
+* Navigate to the `globex` instance and from there to `globex / ProductCatalogAPI`. 
 * You can either retrieve the specs as OpenAPI spec as (a) *raw text* or (b) *a file* and then import this into Postman.
 
 .. *If you are importing OpenAPI spec as raw text*
@@ -58,7 +58,7 @@ image:images/postman-import-popup.png[]
 ** You can either drag the file into this window or clik on `Upload Files`to import the file downloaded from Service Registry
 ** You will be auto-navigated to the next step
 
-. You will now see the API's name and a few other details populated the `Import` wizard
+. You will now see the API's name and a few other details populated in the `Import` wizard
 +
 image::images/postman-import-populated.png[]
 
@@ -83,7 +83,7 @@ image::images/postman-mock-create-server.png[]
 image::images/postman-mock-server-url.png[]
 
 === Test the imported API using the mock server
-. Explore  `Collections` menu from the left hand side, and you will be able to see the examples that been already created while the API was designed.
+. Explore  `Collections` menu from the left hand side, and you will be able to see the examples that have been already created while the API was designed.
 . Click on the `Get list of product by id` from the Collections. This opens a tab on Postman which you can use to issue a request
 +
 image::images/postman-choose-prodbyid.png[] 
