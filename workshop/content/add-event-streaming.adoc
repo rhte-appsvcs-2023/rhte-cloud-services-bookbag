@@ -16,7 +16,7 @@ Both services are developed using Quarkus, the Quarkus extensions for reactive m
 
 In this part of the workshop you will connect the Activity Tracking and Recommendation Engine applications to the OpenShift Streams for Apache Kafka instance using link:https://docs.openshift.com/container-platform/4.10/applications/connecting_applications_to_services/understanding-service-binding-operator.html[Service Binding,role=external,window=_blank].
 
-You will be using the Red Hybrid Hybrid Cloud Console and the OpenShift Developer Console to setup and configure the Streams for Apache Kafka instance as well as the service binding. Note that these steps can also be achieved using the Red Hat OpenShift Application Services (`rhoas`) CLI.
+You will be using the Red Hat Hybrid Cloud Console and the OpenShift Developer Console to setup and configure the Streams for Apache Kafka instance as well as the service binding. Note that these steps can also be achieved using the Red Hat OpenShift Application Services (`rhoas`) CLI.
 
 .[underline]#Click to learn more about Service Binding#
 [%collapsible]

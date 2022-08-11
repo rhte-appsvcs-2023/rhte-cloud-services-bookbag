@@ -16,7 +16,7 @@ OpenShift API Designer is in Beta and all your designs are stored locally in you
 
 === Import API 
 
-. Navigate to OpenShift API Designer tab and  login using your  Red Hat account
+. Navigate to https://console.redhat.com/beta/application-services/api-designer[OpenShift API Designer,role=external,window=_blank] and  login using your Red Hat account
 . In the landing page, click on the "Import design" buton and choose `"Import from URL"` option.
 +
 image::images/api-designer-import-url.png[]

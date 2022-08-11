@@ -22,7 +22,7 @@ image::images/postman-signup.png[]
 +
 image::images/postman_landing.png[] 
 
-=== Import the ProductCatalogAPI API
+=== Import the ProductCatalogAPI
 
 . You will now see the `Import wizard`  with multiple options
 +
@@ -40,7 +40,7 @@ image:images/postman-import-popup.png[width=60%]
 image::images/osr-view-content.png[]
 
 ** Navigate to the `Postman window browser tab` which is already open.
-** Click on the `Content` option of the `Import` popup and paste the content from the memory (Ctrl-V) into the textarea.
+** Click on the `Raw text` option of the `Import` popup and paste the content from the memory (Ctrl-V) into the textarea.
 +
 image:images/postman-rawtext.png[]
 ** Click on Continue 
@@ -64,7 +64,7 @@ image::images/postman-import-populated.png[]
 
 . Click on `Import`. 
 . You will be notified that `Import complete`. Click `Close` button.
-. Explore the `OrdePlacement API` that has been imported.
+. Explore the `Product Catalog API` that has been imported.
 ** Note that the Collections and APIs are prepopulated
 
 === Setup Postman mock server
