@@ -3,7 +3,7 @@
 [NOTE]
 ====
 If you already have a Red Hat account, you can use your existing account for the remainder of the labs. +
-In this case you can skip this section and move immediately to the next session.
+In this case you can skip this section and move immediately to the next section.
 ====
 
 You need a Red Hat account to provision Red Hat cloud services. Follow the instructions to create a Red Hat account:
