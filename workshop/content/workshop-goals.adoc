@@ -2,7 +2,7 @@ The primary goal of the workshop is to guide the user through:
 
 * Adding Event Streaming capabilities to an application, in this case to allow tracking user activity and performing streaming analytics on the generated user activity stream.
 
-* Integrating the application witth external cloud services using OpenShift Connectors.
+* Integrating the application with external cloud services using OpenShift Connectors.
 
 * Demonstrating an API First development approach.
 

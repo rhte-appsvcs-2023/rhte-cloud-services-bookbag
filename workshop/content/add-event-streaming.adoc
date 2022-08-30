@@ -62,12 +62,12 @@ image::images/globex-coolstuff-product-page.png[]
 
 . Select the *Topics* tab, click *Create topic*, and follow the guided steps to define the topic details. Click *Next* to complete each step and click *Finish* to complete the setup.
 +
-image::images/rhosak-create-topic.png[]
-+
 * *Topic name*: Enter `globex.tracking`.
 * *Partitions*: Keep the default value at `1`. 
 * *Message retention*: Keep default values. [ *Retention time*: `A week` and *Retention Size*: `Unlimited`. ]
 * *Replicas*: Keep default values
++
+image::images/rhosak-create-topic.png[]
 +
 .[underline]#*Click to learn more about these parameters*#
 [%collapsible]
@@ -92,7 +92,7 @@ Binding applications to services using Service Binding requires the Service Bind
 In this part of the workshop you connect your OpenShift instance to the Streams for Kafka instance you created previously. This can be done from the Developer perspective on the OpenShift console, or using the `rhoas` CLI. In this workshop you use the OpenShift console.
 
 . In a browser window, navigate to the console of your OpenShift cluster at %openshift_cluster_console%. Open the *Developer* perspective in the *globex-%user%* namespace.
-. In the Developer perspective, navigate to the *+Add* view. Locate the *Developer Catalog* card with the *Managed Services* entry
+. In the Developer perspective, navigate to the *+Add* view. Locate the *Developer Catalog* card with the *Managed Services* entry.
 +
 image::images/openshift-console-developer-catalog.png[]
 . Click the *Managed Services* link. This opens the Managed Services page, which has a card for *Red Hat OpenShift Application Services*.
@@ -118,7 +118,7 @@ image::images/openshift-console-rhosak.png[]
 . Click the *Red Hat OpenShift Streams for Apache Kafka* card, and click *Connect*. This opens a page which shows the Kafka instances that you can connect to. Select the `globex` instance and click *Next*
 +
 image::images/openshift-console-rhosak-connect.png[]
-. You are redirected to the *Topology View* of the Developer perspective, which shows now an icon for the managed Kafka instance.
+. You are redirected to the *Topology View* of the Developer perspective, which shows now an icon for the managed Kafka instance (you might need to zoom out to see the icon if it was created off-screen).
 +
 image::images/openshift-console-topology-rhosak.png[]
 . The entry is backed by a `KafkaConnection` custom resource created by the OpenShift Application Services operator. To see the details of the KafkaConnection resource, click on the resource in the Topology view, and in the Details window, select *Edit KafkaConnection* from the *Action* drop-down box to see the YAML structure of the custom resource. +
@@ -133,7 +133,7 @@ Setting permissions in the Access Control List of a Streams for Apache Kafka can
 
 . Navigate to the *Application and Data Services* page of the link:https://console.redhat.com[console.redhat.com] console.
 . On the *Service Accounts* page, check that a service account was created by the OpenShift Application Services operator. Look for a service account with a name like `rhoas-operator-xxx`.
-. Navigate to the *Streams for Apache Kafka -> Kafka instances* page and open the page for your Kafka instance.
+. Navigate to the *Streams for Apache Kafka -> Kafka instances* page and select your Kafka instance by clicking its name.
 . Click the *Access* tab to view the current ACL for this instance.
 +
 image::images/rhosak-default-access.png[]
@@ -156,7 +156,7 @@ image::images/rhosak-access-serviceaccount.png[]
 
 ===== [underline]#*Bind applications to Streams for Apache Kafka*#
 
-You can now bind the Activity Tracking Service and Recommendation Engine to the OpenShift Streams for Apache instance. Through Service Binding the connection details are injected into the application pods. Service Binding to a managed Kafka instance can be done on the Topology view of OpenShift console, or through the `rhoas` CLI. In this workshop we use the OpenShift console.
+You can now bind the Activity Tracking Service and Recommendation Engine to the OpenShift Streams for Apache Kafka instance. Through Service Binding the connection details are injected into the application pods. Service Binding to a managed Kafka instance can be done on the Topology view of OpenShift console, or through the `rhoas` CLI. In this workshop we use the OpenShift console.
 
 . In a browser window, navigate to the console of your OpenShift cluster at %openshift_cluster_console%. Open the *Developer* perspective.
 . Navigate to the *Topology* view of the OpenShift console in the *globex-%user%* namespace.

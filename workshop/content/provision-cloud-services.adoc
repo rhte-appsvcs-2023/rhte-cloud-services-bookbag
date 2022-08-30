@@ -2,7 +2,7 @@
 
 == Red Hat OpenShift Application Services
 
-Red Hat OpenShift Application Services is a growing collection of managed cloud services which provide a streamlined developer experience for building and deploying event streams based applications, design and manage API specifications and schemas, and manage and secure APIs.
+Red Hat OpenShift Application Services is a growing collection of managed cloud services which provide a streamlined developer experience for building and deploying event streams based applications, to design and manage API specifications and schemas, and to manage and secure APIs.
 
 As part of this workshop you provision and use the following Red Hat Application Services:
 
@@ -14,9 +14,9 @@ As part of this workshop you provision and use the following Red Hat Application
 
 == Provision a Streams for Apache Kafka instance
 
-In this step you provision a Streams for Apache Kafka instance which will be used to produce a stream of activity tracking events and for the records produced by users placing an order.
+In this step you provision a Streams for Apache Kafka instance which will be used to hold a stream of activity tracking events and for the records produced by users placing an order.
 
-Red Hat OpenShift Application Services are provisioned and managed through the Red Hat Hybrid Cloud Console at link:https://console.redhat.com[console.redhat.com,role=external,window=_blank] or with the `rhoas` CLI. This workshop uses the Hybrid Console.
+Red Hat OpenShift Application Services are provisioned and managed through the Red Hat Hybrid Cloud Console at link:https://console.redhat.com[console.redhat.com,role=external,window=_blank] or with the `rhoas` CLI. This workshop uses the Hybrid Cloud Console.
 
 . Navigate to https://console.redhat.com[console.redhat.com,role=external,window=_blank] and log in with your Red Hat account credentials.
 +
@@ -45,7 +45,7 @@ image::images/console-redhat-com-kafka-instance-ready.png[]
 
 . When the instance _Status_ is `Ready`, you can start using the Kafka instance. You can use the options icon (three vertical dots) to view, connect to, or delete the instance as needed.
 
-Normally, when using Streams for Apache Kafka, the next steps would be to create a service account and set up the Access Control List for that service account. However, when using Service Binding to connect applications to the Kafka instance, a service account is created as part of the binding. Once the service account is created, you will need to setup the required permissions for that service account. An alternative is to set up wildcard permissions (valid for all service accounts), but this is generally considered less secure.  
+Normally, when using Streams for Apache Kafka, the next steps would be to create a service account and set up the Access Control List for that service account. However, in this workshop, you will be using Service Binding to connect applications to the Kafka instance. A service account is created as part of the binding. Once the service account is created, you will need to setup the required permissions for that service account. An alternative is to set up wildcard permissions (valid for all service accounts), but this is generally considered less secure.  
 
 == Provision a Service Registry instance
 
