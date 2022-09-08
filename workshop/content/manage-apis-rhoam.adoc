@@ -41,7 +41,7 @@ image::images/rhoam-create-product.png[width=100%]
 . Click *Create Product*.
 . A Product `globex-product-catalog` is created and you are taken to the *Product Overview* page.
 +
-image:images/rhoam-create-product-overview.png[]
+image::images/rhoam-create-product-overview.png[]
 
 === Create an API Backend
 . Navigate back to the Dashboard. Click *Create Backend* in the *Backends* card found in the APIs section.
@@ -64,7 +64,8 @@ image::images/rhoam-create-backend.png[]
 ** In a browser window, navigate to the console of the lab OpenShift cluster at link:%openshift_cluster_console%[role=external,window=_blank]. Login with your username and password (`%user%/%user_password%`). Open the *Developer* perspective in the *globex-%user%* namespace.
 ** Click on the *catalog icon* to see the deployment details appear on the right hand side.
 +
-image::rhoam-globex-deployment-topology-catalog-service.png[]
+image::images/rhoam-globex-deployment-topology-catalog-service.png[]
+
 ** Under the *Resources* tab, copy the *Location* URL as present at the bottom under *Routes*. This would look something like this: `%catalog_service_url%`
 * You will use this base URL as the *Private endpoint* while creating the Backend.
 ====
