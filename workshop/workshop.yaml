@@ -3,12 +3,10 @@ name: Using Red Hat's cloud services to rapidly deliver cloud-native application
 modules:
   activate:
     - workshop-goals
-    - workshop-introduction
     - create-redhat-account
     - provision-cloud-services
-    - design-apis
-    - service-registry
-    - mock-apis
-    - manage-apis-rhoam
-    - add-event-streaming
+    - cdc-workshop-introduction
+    - cdc-workshop-instructions
+    - eda-workshop-introduction
+    - eda-workshop-instructions
     - integrate-openshift-connectors

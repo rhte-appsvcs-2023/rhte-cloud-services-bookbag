@@ -1,12 +1,17 @@
+
 :icons: font
 
-[NOTE]
+[IMPORTANT]
 ====
-If you already have a Red Hat account, you can use your existing account for the remainder of the lab. +
-In this case you can skip this section and move immediately to the next section.
+Create an Red Hat Account ID specifically for this workshop to access the  Red Hat Cloud Services. 
+
+DO NOT use Red Hat Single-Sign On with your email address. This will cause issues because of the max limit to the number of Service Accounts in the Red Hat organization we are all part of. This will cause the workshop to fail.
+
+This instruction is specific to Red Hatters - and your customers will not need to do this.
+
 ====
 
-You need a Red Hat account to provision Red Hat cloud services. Follow the instructions to create a Red Hat account:
+Follow the instructions to create a new Red Hat account:
 
 . In a browser window, navigate to the Red Hat Hybrid Cloud console at link:https://console.redhat.com[console.redhat.com,role=external,window=_blank]. You are redirected to the login page.
 . Click the *Register for a Red Hat account* link to create a Red Hat account.
@@ -14,9 +19,16 @@ You need a Red Hat account to provision Red Hat cloud services. Follow the instr
 image::images/register-redhat-account.png[]
 . You are redirected to a registration form. Fill in the form.
 ** Choose a *Personal* Account type.
-** The login name has to be unique.
-+
+** The login name has to be unique. 
+** Use a variant of your Red Hat  email address. See note below.
+
+[IMPORTANT]
+====
+Use a variant of your Red Hat  email address like this jaya+rhte@redhat.com - Google will automatically route all emails to jaya@redhat.com but you will still have a variant _username_ so that this Red Hat account doesn’t clash with anything else
+====
+
 image::images/create-redhat-account.png[]
+
 . Once you completed the form, click *Create My Account* to create your new Red Hat account.
 . You are redirected to a Terms and Conditions page. Accept the terms to finalize the creation of your account.
 +

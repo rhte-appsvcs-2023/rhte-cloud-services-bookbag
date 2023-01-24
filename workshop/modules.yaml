@@ -3,28 +3,22 @@ modules:
   workshop-goals:
     name: Workshop Overview and Goals
     exit_sign: Continue
-  workshop-introduction:
-    name: Workshop Introduction and Context
-    exit_sign: Continue
   create-redhat-account:
     name: Create a Red Hat Account
     exit_sign: Continue
   provision-cloud-services:
     name: Provision Red Hat Application Services
     exit_sign: Continue
-  design-apis:
-    name: Design APIs for an API First Approach
+  cdc-workshop-introduction:
+    name:  Modernize with CDC - Workshop Introduction and Context
     exit_sign: Continue
-  service-registry:
-    name: Host APIs in a Service Registry
+  cdc-workshop-instructions:
+    name:  Modernize by adopting Change Data Capture
     exit_sign: Continue
-  mock-apis:
-    name: Create mocks to enable parallel development
+  eda-workshop-introduction:
+    name:  Event Streaming - Workshop Introduction and Context
     exit_sign: Continue
-  manage-apis-rhoam:
-    name: Manage and Secure APIs 
-    exit_sign: Continue
-  add-event-streaming:
+  eda-workshop-instructions:
     name: Add Event Streaming capabilities to an application
     exit_sign: Continue
   integrate-openshift-connectors:
