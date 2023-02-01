@@ -1,12 +1,30 @@
-The primary goal of the workshop is to guide the user through selected sections of the following solution patterns.
 
-Both solutuion patterns refer to retail use cases
+== How to demo Application Services with Solution Patterns
 
-== Modernize an existing application with CDC
+Solution Patterns help you to demonstrate how *Red Hat Application Platform + Red Hat Portfolio* can solve common scenarios and use cases for your customers and partners.
 
-In this case you will learn how to leverage Change Data Capture based on Debezium to build new use cases on top of a legacy application that cannot or will not be modernized.
+Each Solution Pattern contains public documentation of the architectural solution, use cases, challenges, detailed explanation,  actual implementation, fully reproducible. 
 
-== Add Event Streaming capabilities 
+With these patterns you can
 
-This use case involves tracking user activity and performing streaming analytics on a retail website's user activity stream.
+* *learn* hands-on Red Hat technologies based on real world use cases
+* use them as part of your customer discussions to *demonstrate* the full capabilities of Red Hat technologies 
+* run technical *workshops* for your customers including handson labs for developers
+
+
+== Workshop goals
+
+The primary goal of this workshop is to guide you through a couple of selected sections of the following solution patterns to give you an opportunity to try these out yourself to undertsand how to use these patterns to demostrate Red Hat Application Services with your customers. Each of these applications are of a larger scope that what is part of this workshop, and can be accessed via their respective pages
+
+The solution patterns for this works shop are based on retail use cases based on a fictitious customer. 
+
+* Modernize an existing application with Change Data Capture
+* Extend applications to adopt  Event Streaming capabilities using Red Hat Application Services
+
+
+You will learn more about the background of each of the usecases in the next sections.
+
+We welcome your feedback on what works and what doesn't, and also very importantly be a part and contribute to the open community of solution patterms.
+
+In the next step you will setup a few prerequistes needed to perform the labs.
 

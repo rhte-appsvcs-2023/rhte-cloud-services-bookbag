@@ -1,0 +1,26 @@
+
+== Try out our other Red Hat Solution Patterns
+
+It's time to boost your cloud-native application architectural design with bleeding-edge technology backed by open-source software. Explore the use cases and learn recommended solutions for each of these challenges:
+
+** Application Modernization
+
+* https://redhat-solution-patterns.github.io/solution-pattern-modernization-cdc/[Adopting Change Data Capture for stack modernization]
+* https://redhat-solution-patterns.github.io/solution-pattern-enhancing-applications[Enhancing Applications with Application Services]
+- Complete demo is also available on https://demo.redhat.com/catalog?item=babylon-catalog-prod/sandboxes-gpte.shared-ocp4-ama-app-svcs.prod&utm_source=webapp&utm_medium=share-link[Red Hat Demo Platform^]
+* https://redhat-solution-patterns.github.io/solution-pattern-apim-servicemesh/comprehensive-service-architecture[Comprehensive Service Architecture with API Management and Service Mesh]
+
+** DevOps
+
+* https://redhat-solution-patterns.github.io/solution-pattern-multicloud-gitops-odf/[MultiCloud GitOps with ArgoCD, OpenShift Advanced Cluster Management and OpenShift Data Foundation]
+
+
+== We'd love to hear from you 
+
+* Love it! Hate it!
+* Got great ideas for Solution Patterns - what your customers want to here!
+* You'd like to contribute too!
+
+We'd love to hear from you! Fill out this form and help us out.
+
+And you may be among 10 Lucky winners to recieve *Red Hat Rewards*

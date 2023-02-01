@@ -3,11 +3,8 @@ modules:
   workshop-goals:
     name: Workshop Overview and Goals
     exit_sign: Continue
-  create-redhat-account:
-    name: Create a Red Hat Account
-    exit_sign: Continue
-  provision-cloud-services:
-    name: Provision Red Hat Application Services
+  setup-prerequisites:
+    name: Setup Prerequisites
     exit_sign: Continue
   cdc-workshop-introduction:
     name:  Modernize with CDC - Workshop Introduction and Context
@@ -21,5 +18,5 @@ modules:
   eda-workshop-instructions:
     name: Add Event Streaming capabilities to an application
     exit_sign: Continue
-  integrate-openshift-connectors:
-    name: Integrate an application with cloud services using OpenShift Connectors
+  whats-next:
+    name: What's next?
