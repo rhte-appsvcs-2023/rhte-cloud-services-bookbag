@@ -1,5 +1,5 @@
 ---
-name: Using Red Hat's cloud services to rapidly deliver cloud-native applications
+name: How to demo Red Hat Application Services through Solution Patterns
 modules:
   activate:
     - workshop-goals

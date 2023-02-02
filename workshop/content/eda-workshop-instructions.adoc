@@ -1,8 +1,8 @@
 :icons: font
 
-== Adding Event Streaming capabilities to an application
+:toc:
 
-=== Introduction
+== Introduction
 
 To support the business requirement of capturing and processing user activity on the Globex Coolstuff application, two new services have been developed:
 
@@ -12,23 +12,31 @@ The service also exposes a REST endpoint to expose the list of featured products
 
 Both services are developed using Quarkus, the Quarkus extensions for reactive messaging and Kafka Streams. The development of the services is outside the scope of this workshop, but you are encouraged to examine the source code of the applications on GitHub: link:https://github.com/cloud-services-summit-connect-2022/activity-tracking-service[Activity Tracking Service,role=external,window=_blank] and link:https://github.com/cloud-services-summit-connect-2022/recommendation-engine[Recommendation Engine,role=external,window=_blank]
 
-=== Workshop Activities
+== Workshop Activities
 
-In this part of the workshop you will connect the Activity Tracking and Recommendation Engine applications to the OpenShift Streams for Apache Kafka instance using link:https://docs.openshift.com/container-platform/4.10/applications/connecting_applications_to_services/understanding-service-binding-operator.html[Service Binding,role=external,window=_blank].
-
-You will be using the Red Hat Hybrid Cloud Console and the OpenShift Developer Console to setup and configure the Streams for Apache Kafka instance as well as the service binding. Note that these steps can also be achieved using the Red Hat OpenShift Application Services (`rhoas`) CLI.
+* In this part of the workshop you will connect the Activity Tracking and Recommendation Engine applications to the OpenShift Streams for Apache Kafka instance using link:https://docs.openshift.com/container-platform/4.10/applications/connecting_applications_to_services/understanding-service-binding-operator.html[Service Binding,role=external,window=_blank].
+* You will be using the Red Hat Hybrid Cloud Console and the OpenShift Developer Console to setup and configure the Streams for Apache Kafka instance as well as the service binding. 
+** Note that these steps can also be achieved using the Red Hat OpenShift Application Services (`rhoas`) CLI. For CLI based instructions refer to the *Appendix* section at the end of the page
 
 .[underline]#Click to learn more about Service Binding#
 [%collapsible]
 ====
-Service Binding allows you to communicate connection details and secrets to an application to allow it to bind to a service. In this context, a service can be anything: a Kafka instance, a NoSQL database, etc. By using Service Binding, we no longer need to configure connection details (host, port), authentication mechanisms (SASL, OAuth) and credentials (username/password, client id/client secret) in an application. Instead, Service Binding injects these variables into your application container (as files or environment variables) for your application to consume. The Quarkus Kubernetes Service Binding extension enables Quarkus applications to automatically pickup these variables, injected as files, from the container's filesystem, removing the need to specify any configuration settings in the application resources (e.g configuration files) themselves.
+[NOTE]
+=====
+
+* Service Binding allows you to communicate connection details and secrets to an application to allow it to bind to a service. In this context, a service can be anything: a Kafka instance, a NoSQL database, etc. 
+* By using Service Binding, we no longer need to configure connection details (host, port), authentication mechanisms (SASL, OAuth) and credentials (username/password, client id/client secret) in an application. 
+* Instead, Service Binding injects these variables into your application container (as files or environment variables) for your application to consume. 
+* The Quarkus Kubernetes Service Binding extension enables Quarkus applications to automatically pickup these variables, injected as files, from the container's filesystem, removing the need to specify any configuration settings in the application resources (e.g configuration files) themselves.
+
 
 https://servicebinding.io/[Service Binding For Kubernetes,role=external,window=_blank]. 
+=====
+
 ====
 
-=== Step-By-Step Instructions
 
-==== Explore the environment
+== Explore the environment
 
 . In a browser window, navigate to the console of the lab OpenShift cluster at link:%openshift_cluster_console%[role=external,window=_blank]. Login with your username and password (`%user%/%user_password%`). Open the *Developer* perspective in the *globex-%user%* namespace.
 . In the Developer perspective, open the *Topology* view. Expect to see something like this (rearrange the topology as you see fit):
@@ -54,7 +62,7 @@ image::images/eda/globex-coolstuff-home-page.png[]
 image::images/eda/globex-coolstuff-product-page.png[]
 . The _Featured_ pane on the home page is empty at the moment. Also the product list page has an empty bar above the product list. These elements will be populated once the recommendation engine is up and running. 
 
-==== Create a Kafka Topic in OpenShift Streams for Apache Kafka
+== Create a Kafka Topic in OpenShift Streams for Apache Kafka
 
 . On the https://console.redhat.com[console.redhat.com] landing page, select *Application and Data Services* from the menu on the left. On the Application Services landing page, select *Streams for Apache Kafka → Kafka Instances*.
 
@@ -83,13 +91,13 @@ image::images/eda/rhosak-create-topic.png[]
 image::images/eda/rhosak-topic-created.png[]
 
 
-==== Binding applications to Streams for Apache Kafka
+== Binding applications to Streams for Apache Kafka
 
 Binding applications to services using Service Binding requires the Service Binding operator to be installed on the OpenShift cluster. To bind more specifically to a OpenShift Streams for Apache Kafka instance, the Red Hat OpenShift Application Services (RHOAS) operator is required. Both operators have been installed on your OpenShift cluster.
 
-===== [underline]#*Connect OpenShift Streams for Apache Kafka*#
+=== Connect OpenShift Streams for Apache Kafka
 
-In this part of the workshop you connect your OpenShift instance to the Streams for Kafka instance you created previously. This can be done from the Developer perspective on the OpenShift console, or using the `rhoas` CLI. In this workshop you use the OpenShift console.
+In this part of the workshop you connect your OpenShift instance to the Streams for Kafka instance you created previously. This can be done from the Developer perspective on the OpenShift console, or using the `rhoas` CLI. In this section workshop you use the OpenShift console.
 
 . In a browser window, navigate to the console of your OpenShift cluster at %openshift_cluster_console%. Open the *Developer* perspective in the *globex-%user%* namespace.
 . In the Developer perspective, navigate to the *+Add* view. Locate the *Developer Catalog* card with the *Managed Services* entry.
@@ -103,11 +111,11 @@ Open a new browser tab and navigate to link:https://console.redhat.com/openshift
 Click on *Load token* in the *Connect with offline token* box. Copy the generated API token.
 . Go back to the browser tab with the OpenShift console, and click the *Red Hat OpenShift Application Services* card. This opens a popup window.  Paste the API token value in the *API Token* field.
 +
-image::images/eda/openshift-console-application-services-popup.png[]
-+
 Click *Connect*. 
 +
-[NOTE]
+image::images/eda/openshift-console-application-services-popup.png[]
++
+[IMPORTANT]
 ====
 After clicking *Connect*, the connect button turns grey, but the *Red Hat OpenShift Application Services* window stays open until the discovery of the available managed services is complete. This can take up to a minute. Do not close the *Red Hat OpenShift Application Services* window or refresh your browser in the meantime, as this will interrupt the process and lead to errors afterwards.
 ====
@@ -125,7 +133,7 @@ image::images/eda/openshift-console-topology-rhosak.png[]
 Notice that the YAML structure contains the bootstrap URL of the Kafka broker, as well as a reference to a secret containing the details of a service account, named `rh-cloud-services-service-account`. More specifically, look for the `status.bootstrapServerHost` and `status.serviceAccountSecretName` fields in the YAML descriptor. +
 Click *Cancel* to return to the Topology view.
 
-===== [underline]#*Set Permissions for a Service Account*#
+==== [underline]#*Set Permissions for a Service Account*#
 
 As part of connecting to the managed Kafka instance, a service account is created. This is the service account that will be used by the Activity Tracking and Recommendation Engine services to actually connect to the managed Kafka instance. To make this work, the service account needs permissions, in particular the service account needs to be able to consume from topics, produce to topics and create new topics.
 
@@ -154,13 +162,17 @@ The ACL list for the service account should look like:
 +
 image::images/eda/rhosak-access-serviceaccount.png[]
 
-===== [underline]#*Bind applications to Streams for Apache Kafka*#
+==== [underline]#*Bind applications to Streams for Apache Kafka*#
 
-You can now bind the Activity Tracking Service and Recommendation Engine to the OpenShift Streams for Apache Kafka instance. Through Service Binding the connection details are injected into the application pods. Service Binding to a managed Kafka instance can be done on the Topology view of OpenShift console, or through the `rhoas` CLI. In this workshop we use the OpenShift console.
+You can now bind the Activity Tracking Service and Recommendation Engine to the OpenShift Streams for Apache Kafka instance. Through Service Binding the connection details are injected into the application pods. Service Binding to a managed Kafka instance can be done on the Topology view of OpenShift console, or through the `rhoas` CLI. In this workshop we use the OpenShift console. 
+[NOTE]
+====
+For CLI based instructions refer to the *Appendix* section at the end of the page
+====
 
 . In a browser window, navigate to the console of your OpenShift cluster at %openshift_cluster_console%. Open the *Developer* perspective.
 . Navigate to the *Topology* view of the OpenShift console in the *globex-%user%* namespace.
-. Hover over the *activity-tracking* deployment, and grab the arrow that appears. Drag the arrow to the *KafkaConnection* icon. When reaching the KafkaConnection icon, a text box `Create Service Binding` appears. Release the arrow. Click *Create* in the *Create Service Binding* pop-up window. The Activity Tracking deployment and the KafkaConnection icon are now connected with a solid black arrow.
+. Hover over the *activity-tracking* deployment, and grab the arrow that appears. Drag the arrow to the *KafkaConnection* icon. When reaching the *KafkaConnection* icon, release the arrow. A text box `Create Service Binding` appears.  Click *Create* in the *Create Service Binding* pop-up window. The Activity Tracking deployment and the KafkaConnection icon are now connected with a solid black arrow.
 +
 image::images/eda/rhosak-service-binding.png[]
 . Click on the *activity-tracking* deployment to open the details window, and click on the deployment name (above the Details, Resources and Observe tabs) to open the full details of the Deployment. Scroll down to the *Volumes* section. Notice that the service binding occurs by injecting a secret into the pod:
@@ -194,7 +206,7 @@ image::images/eda/rhosak-kafka-streams-topics.png[]
 +
 Those are the topics created by the Kafka Streams topology in the Recommendation Engine to calculate the top featured products based on activity events.
 
-==== Testing the Globex Coolstuff application
+== Testing the Globex Coolstuff application
 
 Now that the Activity Tracking and Recommendation Engine apps are up and running, we can test the generation of activity events and the calculation of the top featured products.
 
@@ -248,7 +260,7 @@ This initiates a browser based login. Log in using your Red Hat Account credenti
 [.console-input]
 [source,bash]
 ----
-rhoas kafka create --name globex-%user% --region us-east-1
+rhoas kafka create --name globex --region us-east-1
 ----
 +
 [.console-output]
