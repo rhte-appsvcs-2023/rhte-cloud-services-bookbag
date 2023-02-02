@@ -1,4 +1,5 @@
 :icons: font
+:toc:
 
 == Prerequisites setup guide
 
@@ -114,15 +115,11 @@ Normally, when using Streams for Apache Kafka, the next steps would be to create
 * Under the *kamel - Red Hat Integration - Camel K - Command Line Interface*, choose the CLI based on your dev environment.
 * Download the zip file, extract the `kamel` CLI and place it in an appropriate folder
 
-=== Installing `rhoas` CLI (Optional)
+=== Installing `rhoas` CLI 
  
-[NOTE]
-====
-Install the `rhoas` CLI  if you prefer to use the  CLI to provision and configure the OpenShift Streams for Apache Kafka instance, and to bind your applications to the Kafka instance - instead of setting up all of this through the web console
-====
 
- * `rhoas` is used to managed *Red Hat OpenShift Application Services* (in this case OpenShift Streams for Apache Kafka) from a terminal.
- Obtain the latest release of the `rhoas` CLI archive for your operating system from the https://github.com/redhat-developer/app-services-cli/releases/latest[Red Hat OpenShift Application Services CLI releases] page on GitHub.
+* `rhoas` is used to managed *Red Hat OpenShift Application Services* (in this case OpenShift Streams for Apache Kafka) from a terminal.
+* Obtain the latest release of the `rhoas` CLI archive for your operating system from the https://github.com/redhat-developer/app-services-cli/releases/latest[Red Hat OpenShift Application Services CLI releases] page on GitHub.
 ** Install the package (or extract the archive), and add the `rhoas` executable to your path.
 ** Check the version of the CLI
 +
