@@ -39,7 +39,7 @@ The deployed topology consists of:
 | a kafka client ui to facilitate the visualization of events and topics;
 
 | retail-db 
-| PostgreSQL database used by the legacy services;
+| PostgreSQL database used by the legacy services; The table is prepopulated with simulated values for _customer, product and inventoy_.
 
 | retail-simulation +
 (retail-connectors)
@@ -47,26 +47,26 @@ The deployed topology consists of:
 
 | sales-streams +
 (retail-connectors)
-| Quarkus + Kafka Streams event-driven service for purchase data (sales data) aggregation and synchronization;
+| Quarkus + Kafka Streams event-driven service for purchase data (sales data) aggregation and synchronization; https://github.com/solution-pattern-cdc/sales-streams[Source^]
 
 | cashback-connector +
 (retail-connectors)
-| Camel + Quarkus service for event-driven processing of expenses;
+| Camel + Quarkus service for event-driven processing of expenses; https://github.com/solution-pattern-cdc/cashback-connector[Source^]
 
 | cashback-db
 | PostgreSQL database for cashback related information. 
 
 | cashback-service +
 (retail-services)
-| Quarkus + Camel event-driven service responsible for calculating and maintaining cashback data up-to-date in the new database;
+| Quarkus + Camel event-driven service responsible for calculating and maintaining cashback data up-to-date in the new database; https://github.com/solution-pattern-cdc/cashback-service[Source ^]
 
 | cashback-customer-connector +
 (retail-services)
-| CamelK service for event-driven processing of customers (not deployed yet) 
+| CamelK service for event-driven processing of customers (not deployed yet); https://github.com/solution-pattern-cdc/cashback-connector-camelK[Source ^]
 
 | cashback-ui +
 (retail-services)
-| Quarkus + Panache back-end service to facilitate the visualization of Cashback Wallet information;
+| Quarkus + Panache back-end service to facilitate the visualization of Cashback Wallet information; https://github.com/solution-pattern-cdc/cashback-service-ui[Source^]
 
 |===
 
@@ -80,15 +80,21 @@ image::images/cdc/ocp_routes.png[]
 === Databases
 
 * The `retail-db` (legacy) and `cashback-db` (cashback wallet) are desgined as seen below 
-* Debezium monitors the legacy database for any changes to the `customer`, `product`, `sale` and `line_item` tables and streams every row-level change to Kafka
+* Debezium monitors the legacy database for any changes to the `customer`, `product`, `sale` and `line_item` tables and streams every row-level change to Kafka. 
+** the customer, product and inventory tables in the legacy database has been preopulated with simulated data.
 * Kafka consumers react to these changes to build the Cashback Wallet functionality
 +
 image::images/cdc/database-struct.png[width=80%] 
 
 
 ==== Inspect retail-db
-* Navigate to the  *cashback-%user%* namespace if you aren't already here
-* Click on the `retail-db` deployment and navigate to the pod's terminal. 
+* Navigate to the Developer Topolgy view of *cashback-%user%* namespace if you aren't already here
+* Click on the `retail-db` deployment. Click on the pod's name displayed on the navigation pan on the right hand side. From the Pod Details page  navigate to the pod's terminal. 
++
+image::images/cdc/retaildb-deployment.png[] 
++
+image::images/cdc/retail-db-pod.png[] 
+
 * Use the following Postgresql commands to inspect the legacy `retail` Postgresql database
 - Nnote: sequences are ignored in the below rendering
 +
@@ -201,7 +207,9 @@ The Kafka topics can be viewed at *Administrator view -> Operators -> Installed 
 - `retail.updates.public.sale` -> from the `retail.sale` table (this would remain empty to start with)
 - `retail.updates.public.line_item` -> from the `retail.line_item` table (this would remain empty to start with)
 
-* Launch `kafdrop` in a browser and explore the following topics on the landing page. You can access `kafdrop` from OpenShift console from link:%openshift_cluster_console%/k8s/ns/cashback-%user%/routes[role=external,window=_routes]
+* Launch `kafdrop` in a browser. 
+-You can access `kafdrop` from the list of routes displayed in the OpenShift console accessed via this link link:%openshift_cluster_console%/k8s/ns/cashback-%user%/routes[role=external,window=_routes]
+* Explore the following topics on the landing page. 
 ** `retail.updates.public.customer`
 ** `retail.updates.public.product`
 +
@@ -227,10 +235,31 @@ image::images/cdc/kafkdrop-products-single-msg.png[]
 
 This is the final step before you can simulate a sale from the legacy system and view the corresponding data in the cashback wallet.
 
-* You will setup a *CamelK connector* which will populate the *customer* data into the new `customer` table in *cashback db*. 
-* In addition to the `sale` and `line_item` data, the `customer` details are also needed in the cashback database to fully build out the Cashback Wallet functionality. 
+To calculate *Cashback details* for a sales order, we  will need *customer details* and *sales details*. Some of the services have been preconfigured, but you will setup a CamelK connector as part of this labs as described below.
 
-* Access the Commmand Prompt/Terminal in your laptop where you have created a new folder for this workshop
+==== Presetup services description
+
+* Debezium has pushed the *customer, sale and line_item* details from the retail DB by monitoring the changes and pushed them into the Kafka topic.
+* To transfer this data into the new cashback database, there a few more steps needed. A few of these are already setup for you
+- `sales-stream` service reads from *sale and line_item* topics, aggregates them and creates a new topic `expense-event`.
+- The `cashback-connector` connector that has been already deployed updates the cashback tables with the sales details
+
+
+==== CamelK setup to populate customer table
+
+* Open a *Terminal or Command Prompt* in your laptop and browse to the new  folder (e.g. `rhte23`) you have created as part of the prerequisites. 
+- If you haven't created one, now is a good time to do so. You will use the prompt/terminal to run a few `oc` commands
+* In the  OpenShift console, from the top-right corner, click on the *%user% > Copy login command* menu item.
++
+image::images/cdc/oc-console-login.png[width=30%] 
+* When prompted, login using  (`%user%/%user_password%`), and click on `Display Token`
+* Copy the `oc` command under `Log in with this token`. It will look something like this +
+`oc login --token=sha256~qwertyu --server=https://api.clusterxx.opentlc.com:6443`
+* In your laptop's  terminal or command prompt, paste the copied login command.
+* Choose `y` when prompted to `Use insecure connections? (y/n):`
+* Make sure you are in *cashback-%user%* namespace. If not type `oc project cashback-%user%`
+
+
 * You should have installed `kamel` CLI as part of prerequisites. Make sure it is accessible by running the command `kamel` in terminal
 * Clone the *CamelK Connector* from git +
  `git clone https://github.com/solution-pattern-cdc/cashback-connector-camelK`
@@ -263,7 +292,7 @@ Full command: kamel run -n cashback-%user% CashbackCustomerConnector.java --prop
 Integration "cashback-customer-connector" created
 ```
 * The installed  operator  can be viewed in the *OpenShift console -> Administrator > Installed Operators > Red Hat Integration - Camel K > Integration*. Choose `Current namespace only`. 
-- Note that it may take a couple of minutes befoere the connector's status turns `Running`
+- Note that it may take just a few minutes befoere the connector's status turns `Running`
 
 image::images/cdc/camelK-operator-instance.png[] 
 
@@ -271,17 +300,26 @@ image::images/cdc/camelK-operator-instance.png[]
 
 image::images/cdc/kamel-cashback-connector.png[width=20%] 
 
-* From the Developer View link:%openshift_cluster_console%/topology/ns/cashback-user1?view=graph[role=external,window=console], access the Terminal of the pod `cashback-db`. 
+* From the Developer Topology View link:%openshift_cluster_console%/topology/ns/cashback-user1?view=graph[role=external,window=console], click on the  `retail-db` deployment. From the *Pod details*' page,  navigate to the pod's terminal by click on the Pod name and navigating to the  Terminal tab.
+
++
+image::images/cdc/cash-db.png[] 
++
+image::images/cdc/cashback-pod-terminal.png[] 
+
 * You can query the cashback db to confirm that the `customer` table is now populated.
-- Note: You can types ctrl+c to exit from the listing
 ```
 psql
 \c cashback 
-\d    
-select * from customer;
+\d 
+select count(*) from customer;   
 ```
 
-* The new CamelK connect that your created has consumed from the Kafka topics, and pushed the data into the *cashback.customer* database. Any change to the *legacy customer database* will be monitored by Debezium, and change events will be streamed to Kafka. This new connector will consume those changes and the cashback.database will kept upto date. 
+image::images/cdc/customer-db-count.png[] 
+
+
+* All  changes to the *legacy customer database* is being monitored by Debezium, and change events are streamed to Kafka. 
+* The new CamelK connect that your created has consumed the *customer data from Kafka topic* , and pushed the data into the *cashback.customer* table. This new connector will continue to consume all the changes (due to CDC) and will keep the cashback.database upto date. 
 
 == Simulate an E2E Order Placement -> Cashback Scenario
 
@@ -314,7 +352,7 @@ image::images/cdc/retail-simulation-execute.png[width=60%]
 image::images/cdc/retail-simulation-success.png[width=60%] 
 
 * Open the *Cashback Wallet UI* in your browser and refresh the page. Navigate to the right page in the UI to view the customer you have simulated the sale for. 
-* You should be able to check the new earned cashback, and a list of expenses for each purchase of your customer! In this case 5 sales have been simulated.
+* You can ciew cashback earned by the customer, and a list of expenses for each purchase of your customer. In this screenshot, 5 sales have been simulated.
 +
 image::images/cdc/cashback-ui-final-multi.png[] 
 

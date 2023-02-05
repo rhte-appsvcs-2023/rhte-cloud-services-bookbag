@@ -8,7 +8,7 @@ This use case involves tracking user activity and performing streaming analytics
 
 == Globex Digital Transformation Journey
 
-Globex is a fictitious retail company. The company recently started a digital transformation and cloud adoption journey. As part of this initiative, the development and devops teams have completed the modernization of the existing multi-tier monolithic retail e-commerce web application. The monolithic application was split in a couple of loosely-coupled microservices and the application was re-hosted on OpenShift.
+Globex is a fictitious retail company. The company recently started a digital transformation and cloud adoption journey. As part of this initiative, the development and devops teams have completed the modernization of the existing multi-tier monolithic retail e-commerce web application. The monolithic application was split into loosely-coupled microservices and the application was re-hosted on OpenShift.
 
 image::images/eda/globex-appmod.png[width=35%]
 

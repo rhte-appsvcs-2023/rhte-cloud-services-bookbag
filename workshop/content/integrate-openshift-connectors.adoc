@@ -122,7 +122,7 @@ image::images/console-connectors-eval-namespace.png[]
 . Set the error handling policy to *stop*.
 . Review the summary of the configuration properties and click *Create Connector*.
 
-Your connector instance will be added to the table of connectors. After a couple of seconds, the status of your connector instance will change to the `Ready` state.
+Your connector instance will be added to the table of connectors. After just a few seconds, the status of your connector instance will change to the `Ready` state.
 
 ==== Testing the Globex Coolstuff application
 

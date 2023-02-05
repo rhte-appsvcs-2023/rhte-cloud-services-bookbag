@@ -19,10 +19,9 @@ Setup the following prerequisites before executing the rest of the labs.
 
 [IMPORTANT]
 ====
-This setup instruction is specific to Red Hatters and your customers will not need to do this.
-
 * Create an Red Hat Account ID specifically for this workshop to access the  Red Hat Cloud Services at link:https://console.redhat.com[console.redhat.com,role=external,window=_blank]
-* DO NOT use Red Hat Single-Sign On with your email address to access the  Red Hat Cloud Services. This will cause issues because of the max limit to the number of Service Accounts in the Red Hat organization we are all part of, and will cause the workshop to fail.
+- _Note: Your customers can use their existing Red Hat logins, or create a new one only if they have one already._
+ DO NOT use Red Hat Single-Sign On with your email address to access the  Red Hat Cloud Services. This will cause issues because of the max limit to the number of Service Accounts in the Red Hat organization we are all part of, and will cause the workshop to fail.
 
 *Note*: If you have a Red Hat account which is not associated to Red Hat SSO, you can use that and you can skip the rest of the instructions.
 ====
@@ -88,11 +87,12 @@ image::images/eda/console-redhat-com-kafka-instances.png[]
 This will create a evaluation Kafka instance, which will remain available for 48 hrs. The Kafka instance comes with some limitations, which are listed in the *Create instance* window. The eval Kafka instance consists of a single broker, while production Kafka brokers have a minimum of 3 brokers. 
 ====
 
-. The new Kafka instance is listed in the instances table. After a couple of minutes, your instance should be marked as ready. 
+. The new Kafka instance is listed in the instances table. After just a few minutes, your instance should be marked as ready. 
 +
 image::images/eda/console-redhat-com-kafka-instance-ready.png[]
 
 . When the instance _Status_ is `Ready`, you can start using the Kafka instance. You can use the options icon (three vertical dots) to view, connect to, or delete the instance as needed.
+- Note: You can proceed with the next section and do not need to wait for the instantce to become `Ready`.
 
 Normally, when using Streams for Apache Kafka, the next steps would be to create a service account and set up the Access Control List for that service account. However, in this workshop, you will be using Service Binding to connect applications to the Kafka instance. A service account is created as part of the binding. Once the service account is created, you will need to setup the required permissions for that service account. An alternative is to set up wildcard permissions (valid for all service accounts), but this is generally considered less secure.  
 
@@ -108,12 +108,39 @@ Normally, when using Streams for Apache Kafka, the next steps would be to create
 * Navigate to the link:%openshift_cluster_console%/command-line-tools[Command Line Tools^] page in your OpenShift cluster.
 * Under the *oc - OpenShift Command Line Interface (CLI)*, choose the CLI based on your dev environment.
 * Download the zip file, extract the `oc` CLI and place it in an appropriate folder
++
+[.console-input]
+[source,bash]
+----
+oc version
+----
++
+[.console-output]
+[source,text]
+----
+Client Version: 4.11.0-202209201358.p0.g262ac9c.assembly.stream-262ac9c
+Kustomize Version: v4.5.4
+----
 
 === Installing `kamel` CLI
 
 * Navigate to the link:%openshift_cluster_console%/command-line-tools[Command Line Tools^] page in your OpenShift cluster.
 * Under the *kamel - Red Hat Integration - Camel K - Command Line Interface*, choose the CLI based on your dev environment.
 * Download the zip file, extract the `kamel` CLI and place it in an appropriate folder
+** Check the version of the CLI
++
+[.console-input]
+[source,bash]
+----
+input
+kamel version
+----
++
+[.console-output]
+[source,text]
+----
+Camel K Client Red Hat 1.8.2
+----
 
 === Installing `rhoas` CLI 
  

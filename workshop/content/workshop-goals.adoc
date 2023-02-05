@@ -14,7 +14,7 @@ With these patterns you can
 
 == Workshop goals
 
-The primary goal of this workshop is to guide you through a couple of selected sections of the a couple of following solution patterns so that you can try these out yourself, and undertsand how to use these patterns to demostrate Red Hat Application Services with your customers. Each of these labs are part of a more complete Solution Pattern, and can be accessed via their respective pages
+The primary goal of this workshop is to guide you through selected sections of the following two solution patterns so that you can try these out yourself, and undertsand how to use these patterns to demostrate Red Hat Application Services with your customers. Each of these labs are part of a more complete Solution Pattern, and can be accessed via their respective pages.
 
 The solution patterns for this workshop are based on retail use cases based on a fictitious customer. 
 

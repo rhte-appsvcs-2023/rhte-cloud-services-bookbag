@@ -18,8 +18,8 @@ But there are challenges!
 === Solution Approach
 
 A recommended approach is to consider adopting an Enterprise Integration Pattern for data integration, more specifically, adopting the Change Data Capture (CDC) pattern. +
-Such a approach
-+
+Such an approach
+
 * requires no source code changes in the existing services.
 * uses an event-driven architecture to support the extension of the legacy stack. 
 * architecture includes new microservices, event streaming and event processing tools
@@ -37,4 +37,4 @@ A quick view of solution flow:
 
 image::images/cdc/cdc-funcationality.png[] 
 
-In the next step, you will implement this solution to introduce  *Cashback Wallet business* based on Change Data Capture by using http://debezium.io[debezium^].
+In the next step, you will implement this solution to introduce  *Cashback Wallet* functionality based on Change Data Capture by using http://debezium.io[debezium^].

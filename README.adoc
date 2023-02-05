@@ -92,3 +92,31 @@ bookbag  bookbag-bookbag-demo.apps.ocp.example.com        bookbag   10080-tcp  e
 ----
 
 . Use the Route hostname to open the Bookbag page in your browser.
+
+
+
+== Generate and push bookbag image
+
+=== Build image stream, push OpenShift's private registry image to quay using podman
+
+oc process -f build-template.yaml | oc apply -f -
+
+oc start-build bookbag --follow --from-dir=.     
+
+
+
+ssh lab-user@bastion.jbp76.sandbox2538.opentlc.com
+
+oc login --token=sha256~xxxxxx --server=https://api.cluster-xx.xx.xx.opentlc.com:6443
+
+oc registry login
+
+podman pull default-route-openshift-image-registry.apps.cluster-xx.jbp76.xx.opentlc.com/cashback-user1/bookbag:latest
+
+podman login quay.io ## <you will need quay username/password>
+
+
+podman tag default-route-openshift-image-registry.apps.cluster-xx.jbp76.xx.opentlc.com/cashback-user1/bookbag:latest  quay.io/globex-recommendation/summit-connect-bookbag:rhte-2023
+
+podman push quay.io/globex-recommendation/summit-connect-bookbag:rhte-2023
+
